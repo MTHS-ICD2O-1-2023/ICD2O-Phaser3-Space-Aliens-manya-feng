@@ -39,7 +39,7 @@ class MenuScene extends Phaser.Scene {
   * Can be defined on your own Scenes.
   * Use it to create your game objects.
   * @param { object } data - Any data passed via ScenePlugin.add() or ScenePlugin.start().
-  * /
+  */
   create(data) {
     // pass
   }
