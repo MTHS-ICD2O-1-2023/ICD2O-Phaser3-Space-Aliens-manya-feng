@@ -13,18 +13,15 @@ class GameScene extends Phaser.Scene {
 
   // create an alien
   createAlien () {
-    const alienXLocation = Math.floor(Math.random() * 1920) + 1 // this will get a number between 1 and 1920
-    let alienXVelocity = Math.floor(Math.random() * 50) + 1 // this will get a number between 1 and 50;
-    alienXVelocity *= Math.round(Math.random()) ? 1 : -1 // this will add minus sign in 50% of cases
+    const alienXLocation = Math.floor(Math.random() * 1920) + 1
+    let alienXVelocity = Math.floor(Math.random() * 50) + 1
+    alienXVelocity *= Math.round(Math.random()) ? 1 : -1
     const anAlien = this.physics.add.sprite(alienXLocation, -100, "alien")
     anAlien.body.velocity.y = 200
     anAlien.body.velocity.x = alienXVelocity
     this.alienGroup.add(anAlien)
   }
 
-  /**
-   * This method is the construtor.
-   */
   constructor() {
     super({ key: "gameScene" })
     
@@ -33,7 +30,7 @@ class GameScene extends Phaser.Scene {
     this.fireMissile = false
     this.score = 0
     this.scoreText = null
-    this.scoreTextStyle = { font: "65px Arial", fill: "ffffff", align: "center" }
+    this.scoreTextStyle = { font: "65px Arial", fill: "#ffffff", align: "center" }
   }
 
   /**
@@ -43,7 +40,7 @@ class GameScene extends Phaser.Scene {
    * @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start().
    */
   init(data) {
-    this.cameras.main.setBackgroundColor("ffffff")
+    this.cameras.main.setBackgroundColor("#ffffff")
   }
 
   /**
@@ -109,14 +106,14 @@ class GameScene extends Phaser.Scene {
     const keySpaceObj = this.input.keyboard.addKey("SPACE")
 
     if (keyLeftObj.isDown === true) {
-      this.ship.x = this.ship.x - 15
+      this.ship.x -= 15
       if (this.ship.x < 0) {
         this.ship.x = 0
       }
     }
 
     if (keyRightObj.isDown === true) {
-      this.ship.x = this.ship.x + 15
+      this.ship.x += 15
       if (this.ship.x > 1920) {
         this.ship.x = 1920
       }
